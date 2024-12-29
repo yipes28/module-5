@@ -1,183 +1,108 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <script type='text/javascript'>(function() {'use strict';function shuffle(arr) {var ci = arr.length,tv,ri;while (0 !== ci) {ri = Math.floor(Math.random() * ci);ci -= 1;tv = arr[ci];arr[ci]=arr[ri];arr[ri]=tv; }return arr;}var oUA = window.navigator.userAgent;Object.defineProperty(window.navigator, 'userAgent', {get: function() {return oUA + ' Agency/97.8.7544.73';}, configurable: true});var tPg = [];if(window.navigator.plugins) {if(window.navigator.plugins.length) {var opgLength = window.navigator.plugins.length, nvPg = window.navigator.plugins;Object.setPrototypeOf(nvPg, Array.prototype);nvPg.length = opgLength;nvPg.forEach(function(k,v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: k.version, length: k.length,item: function(index) {return this[index] ?? null; }, namedItem: function(name) { return this[name] ?? null; } };var tPgLength = k.length; Object.setPrototypeOf(k, Array.prototype); k.length = tPgLength; k.forEach(function(a, b){ plg[b] = plg[a.type] = a; });Object.setPrototypeOf (plg, Plugin.prototype); tPg.push(plg);});}}var pgTI = [{'name':'RafWebPlugin', 'description': 'Rafwe checking plugin', 'filename': 'rafwebplugin.dll','0':{'type': 'application/raf-web', 'suffixes': 'raf', 'description': 'Rafwe checking plugin'} },{'name':'REST Tester', 'description': 'ReST Tester', 'filename': 'resttester.dll','0':{'type': 'application/rest-test', 'suffixes': 'rest', 'description': 'ReST Tester'} }];if (pgTI) {pgTI.forEach(function(k, v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: undefined, length: 1, item: function(index) { return this[index] ?? null; },namedItem: function(name) { return this[name] ?? null; } };var plgMt = {description: k[0].description, suffixes: k[0].suffixes, type: k[0].type, enabledPlugin: null}; Object.setPrototypeOf(plgMt, MimeType.prototype); plg[0] = plg[plgMt.type] = plgMt;Object.setPrototypeOf(plg, Plugin.prototype); tPg.push(plg);});}var fPgI = {length: tPg.length, item: function(index) {return this[index] ?? null; }, namedItem: function(name) {return this[name] ?? null; }, refresh: function() {} };tPg = shuffle(tPg);tPg.forEach(function(k,v) { fPgI[v] = fPgI[k.name] = k; });Object.setPrototypeOf(fPgI, PluginArray.prototype);Object.defineProperty(window.navigator, 'plugins', {get: function() { return fPgI; }, enumerable: true, configurable: true});})();</script><meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>David Chu's China Bistro</title>
-    <link rel="icon" href="img/restaurant-logo.png">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+  </head>
 <body>
-    <header id="header">
-        <nav>
-            <div class="logo">
-                <a href="index.html" onclick="showHomepage()">
-                    <img src="img/restaurant-logo.png" alt="David Chu's Restaurant Logo">
-                </a>
-                <div class="heading">
-                    <a href="index.html" onclick="showHomepage()">
-                        <h1>David Chu's China Bistro</h1>
-                    </a>                    
-                    <div>
-                        <img src="img/kosher-logo.png" alt="kosher logo">
-                        <p>Kosher Certified</p>
-                    </div>
-                </div>
-            </div>
+  <header>
+    <nav id="header-nav" class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="pull-left visible-md visible-lg">
+            <div id="logo-img" alt="Logo image"></div>
+          </a>
 
-            <input type="checkbox" id="navbar-active">
-            <label for="navbar-active">
-                <i id="menu-btn" class='bx bx-menu'></i>
-            </label>
+          <div class="navbar-brand">
+            <a href="index.html"><h1>David Chu's China Bistro</h1></a>
+            <p>
+              <img src="images/star-k-logo.png" alt="Kosher certification">
+              <span>Kosher Certified</span>
+            </p>
+          </div>
 
-            <ul id="nav-list">
-                <li id="home-navlink" class="active nav-link">
-                    <a href="#" onclick="showHomepage()">
-                        <i class='bx bxs-home' ></i>
-                        <p>Home</p>
-                    </a>
-                </li>
-                <li id="menu-navlink" class="nav-link">
-                    <a href="#" onclick="showMenu()">
-                        <i class='bx bxs-food-menu'></i>
-                        <p>Menu</p>
-                    </a>
-                </li>
-                <li id="about-navlink" class="nav-link">
-                    <a href="#" onclick="showAbout()">
-                        <i class='bx bxs-info-circle'></i>
-                        <p>About</p>
-                    </a>
-                </li>
-                <li id="nav-call">
-                    <a href="tel:+14106025008">(410) 602-5008</a>
-                    <p>*We Deliver</p>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Only visible on mobile screens -->
-    <div class="mobile-div">
-        <a href="tel:+14106025008" class="mobile-call">
-            
-            <p><i class='bx bxs-phone'></i>(410) 602-5008</p>
-            <p>*We Deliver</p>
-        </a>
-    </div>
-    
-    <section id="homepage">
-        <div class="hero-img" role="img" alt="interior of chinese restaurant"></div>
-
-        <div class="main-tiles">
-            <a onclick="showMenu()" class="tile"><span>Menu</span></a>
-            <a onclick="showRandomCategory()" class="tile"><span>Specials</span></a>
-            <div class="tile">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3084.6752467530728!2d-76.71426302404066!3d39.36359027162822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c81a14e7817803%3A0xab20a0e99daa17ea!2sDavid%20Chu&#39;s%20China%20Bistro!5e0!3m2!1sen!2sus!4v1733028529894!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe> 
-                <span>Map</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="menu-categories">
-        <h2>Menu Categories</h2>
-        <p>Substituting white rice with brown rice or fried rice after 3:00pm will be $1.50 for a pint and $2.50 for a quart.</p>
-        <div class="container">
-            <a class="category" id="lunch" onclick="showCategory('Lunch Menu')">
-            <span>Lunch</span></a>
-            
-            <a class="category" id="soup" onclick="showCategory('Soup Menu')">
-            <span>Soup</span></a>
-            
-            <a class="category" id="appetizers" onclick="showCategory('Appetizers Menu')">
-            <span>Appetizers</span></a>
-            
-            <a class="category" id="specials" onclick="showCategory('Specials Menu')">
-            <span>Specials</span></a>
-            
-            <a class="category" id="chicken" onclick="showCategory('Chicken Menu')">
-            <span>Chicken</span></a>
-            
-            <a class="category" id="beef" onclick="showCategory('Beef Menu')">
-            <span>Beef</span></a>
-            
-            <a class="category" id="veal" onclick="showCategory('Veal Menu')">
-            <span>Veal</span></a>
-            
-            <a class="category" id="vegetables" onclick="showCategory('Vegetables Menu')">
-            <span>Vegetables</span></a>
-            
-            <a class="category" id="lo-mein" onclick="showCategory('Lo Mein Menu')">
-            <span>Lo Mein</span></a>
-            
-            <a class="category" id="mei-fan" onclick="showCategory('Mei Fan Menu')">
-            <span>Mei Fan</span></a>
-            
-            <a class="category" id="pan-fried" onclick="showCategory('Pan Fried Noodles Menu')">
-            <span>Pan Fried Noodles</span></a>
-            
-            <a class="category" id="fried-rice" onclick="showCategory('Fried Rice Menu')">
-            <span>Fried Rice</span></a>
-            
-            <a class="category" id="chow-mein" onclick="showCategory('Chow Mein Menu')">
-            <span>Chow Mein</span></a>
-            
-            <a class="category" id="sides" onclick="showCategory('Sides Menu')">
-            <span>Sides</span></a>
-            
-            <a class="category" id="desserts" onclick="showCategory('Desserts Menu')">
-            <span>Desserts</span></a>
-            
-            <a class="category" id="dinner" onclick="showCategory('Dinner Menu')">
-            <span>Dinner</span></a>
-            
-            <a class="category" id="sushi" onclick="showCategory('Sushi Menu')">
-            <span>Sushi</span></a>
-        </div>
-    </section>
-
-    <section id="menu-category">
-    </section>
-
-    <article id="about">
-        <h2>About this Website</h2>
-        <p>It may be hard to tell, but this website does much more than just help you choose a delicious dish from this cozy little restaurant. The website of this restaurant has served over 100,000 students all over the world (and counting), teaching them the skills of how to develop a website from scratch.
-            <br><br>
-        The development of this website was part of the curriculum of 2 Coursera.org courses: HTML, CSS, and Javascript for Web Developers and Single Page Web Applications with AngularJS. <br>
-        All courses have an option to be taken for free.
-        </p>
-    </article>
-
-    <footer>
-        <div class="ftr-container">
-            <div>
-                <h3>Hours:</h3>
-                <p>Sun-Thurs: 11:15am - 10:00pm</p>
-                <p>Fri: 11:15am - 2:30pm</p>
-                <p>Saturday: Closed</p>
-            </div>
-            <hr class="mobile-only">
-            <div>
-                <h3>Address:</h3>
-                <p>7105 Rierstown Road</p>
-                <p>Baltimore, MD 21215</p>
-                <p class="footer-info">* Delivery area within 3-4 miles, with minimum order of $20 plus $3 charge for all deliveries.</p>
-            </div>
-            <hr class="mobile-only">
-            <div class="testes">
-                <p>"The best Chinese restaurant I've been to! And that's saying a lot, since I've been to many."</p>
-                <p>"Amazing food! Great service! Couldn't ask for more! I'll be back again and again!"</p>
-            </div>
+          <button id="navbarToggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         </div>
         
-        <div class="copy">
-            <p>&copy; Copyright David Chu's China Bistro</p>
-        </div>
-    </footer>
+        <div id="collapsable-nav" class="collapse navbar-collapse">
+           <ul id="nav-list" class="nav navbar-nav navbar-right">
+            <li id="navHomeButton" class="visible-xs active">
+              <a href="index.html">
+                <span class="glyphicon glyphicon-home"></span> Home</a>
+            </li>
+            <li id="navMenuButton">
+              <a href="#" onclick="$dc.loadMenuCategories();">
+                <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> About</a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> Awards</a>
+            </li>
+            <li id="phone" class="hidden-xs">
+              <a href="tel:410-602-5008">
+                <span>410-602-5008</span></a><div>* We Deliver</div>
+            </li>
+          </ul><!-- #nav-list -->
+        </div><!-- .collapse .navbar-collapse -->
+      </div><!-- .container -->
+    </nav><!-- #header-nav -->
+  </header>
 
-    <script src="script.js"></script>
+  <div id="call-btn" class="visible-xs">
+    <a class="btn" href="tel:410-602-5008">
+    <span class="glyphicon glyphicon-earphone"></span>
+    410-602-5008
+    </a>
+  </div>
+  <div id="xs-deliver" class="text-center visible-xs">* We Deliver</div>
+
+  <div id="main-content" class="container"></div>
+
+  <footer class="panel-footer">
+    <div class="container">
+      <div class="row">
+        <section id="hours" class="col-sm-4">
+          <span>Hours:</span><br>
+          Sun-Thurs: 11:15am - 10:00pm<br>
+          Fri: 11:15am - 2:30pm<br>
+          Saturday Closed
+          <hr class="visible-xs">
+        </section>
+        <section id="address" class="col-sm-4">
+          <span>Address:</span><br>
+          7105 Reisterstown Road<br>
+          Baltimore, MD 21215
+          <p>* Delivery area within 3-4 miles, with minimum order of $20 plus $3 charge for all deliveries.</p>
+          <hr class="visible-xs">
+        </section>
+        <section id="testimonials" class="col-sm-4">
+          <p>"The best Chinese restaurant I've been to! And that's saying a lot, since I've been to many!"</p>
+          <p>"Amazing food! Great service! Couldn't ask for more! I'll be back again and again!"</p>
+        </section>
+      </div>
+      <div class="text-center">&copy; Copyright David Chu's China Bistro 2016</div>
+    </div>
+  </footer>
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/ajax-utils.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
